@@ -6,6 +6,13 @@ export function addRestaurant(restaurant) {
   };
 }
 
+export function removeRestaurant(restaurant) {
+  return {
+    type: "restaurants/remove",
+    payload: restaurant
+  }
+}
+
 // Reducer
 const initialState = {
   restaurants: [],
@@ -19,7 +26,13 @@ export default function restaurantsReducer(state = initialState, action) {
         restaurants: [...state.restaurants, action.payload],
       };
 
-    default:
-      return state;
+    case "restaurants/remove":
+      return {
+        ...state,
+        restaurants: state.restaurants.filter(restaurant => restaurant !== action.payload)
+      }
+
+      default:
+        return state;
   }
 }

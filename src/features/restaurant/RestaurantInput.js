@@ -24,6 +24,8 @@ function RestaurantInput() {
         location: location,
       })
     );
+    setName( prevState => prevState = "");
+    setLocation("");
   }
 
   return (
@@ -34,6 +36,7 @@ function RestaurantInput() {
           onChange={handleNameChange}
           id="name"
           placeholder="restaurant name"
+          value={name}
         />
       </p>
       <p>
@@ -42,6 +45,7 @@ function RestaurantInput() {
           onChange={handleLocationChange}
           id="location"
           placeholder="location"
+          value={location}
         />
       </p>
       <button type="submit"> Submit </button>
